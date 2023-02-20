@@ -25,7 +25,9 @@ const Products = () => {
     };
     getProducts()
   },[]);
-
+  if(products.length === 0){
+    setProducts(popularProducts);
+  }
   return (
     <Container>
       {products.map((item) => (
