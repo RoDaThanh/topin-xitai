@@ -1,16 +1,18 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Announcement from "./../components/Announcement";
-import Products from './../components/Products';
 import Newsletter from './../components/Newsletter';
 import Footer from './../components/Footer';
+import Sliceder from './../components/Sliceder';
+import Categories from './../components/Categories';
 
 const Home = () => {
   return (
     <div>
       <Announcement />
       <Navbar />
-      <Products/>
+      <Sliceder/>
+      <Categories/>
       <Newsletter/>
       <Footer/>
     </div>
