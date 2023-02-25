@@ -98,16 +98,16 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <LocationOn style={{marginRight:"10px"}}/>
+          <LocationOn style={{marginRight:"10px", color:"teal"}}/>
            386 Nguyen Van Luong Street, Ward 17, Go Vap District, Ho Chi Minh
           City
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/>
+          <Phone style={{marginRight:"10px", color:"teal"}}/>
            +84 363207888
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}}/>
+          <MailOutline style={{marginRight:"10px", color:"teal" }}/>
            thanhdeptrai@gmail.com
         </ContactItem>
         <Payment src=""/>

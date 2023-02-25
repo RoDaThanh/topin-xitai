@@ -6,9 +6,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 60px;
+  background-color: #fcf5f5;
 `;
 const Wrapper = styled.div`
-  papping: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;

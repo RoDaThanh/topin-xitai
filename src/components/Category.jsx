@@ -36,19 +36,21 @@ const Button = styled.button`
   border: none;
   padding: 10px;
   font-weight: 600;
-  background-color: #fff;
-  color: gray;
+  background-color: teal;
+  color: white;
   cursor: pointer;
 `;
 
 const Category = ({ item }) => {
   return (
     <Container>
-      <Image src={item.img} />
-      <InfoContainer>
-        <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
-      </InfoContainer>
+      <a href={`/products`}>
+        <Image src={item.img} />
+        <InfoContainer>
+          <Title>{item.title}</Title>
+          <Button>SHOP NOW</Button>
+        </InfoContainer>
+      </a>
     </Container>
   );
 };

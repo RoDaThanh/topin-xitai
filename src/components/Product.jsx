@@ -20,7 +20,6 @@ const Info = styled.div`
   justify-content: center;
   transition: all 0.5s ease;
   cursor: pointer;
-  
 `;
 
 const Container = styled.div`
@@ -45,7 +44,6 @@ const Circle = styled.div`
   border-radius: 50%;
   background-color: white;
   position: absolute;
-  
 `;
 
 const Icon = styled.div`
@@ -78,9 +76,11 @@ const Product = ({ item }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-        <Icon>
-          <SearchOutlined />
-        </Icon>
+        <a href={`product/${item.id}`}>
+          <Icon>
+            <SearchOutlined />
+          </Icon>
+        </a>
         <Icon>
           <FavoriteBorderOutlined />
         </Icon>
