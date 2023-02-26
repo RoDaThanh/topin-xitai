@@ -16,7 +16,7 @@ import ProductList from './pages/ProductList';
       element: <Home/>,
     },
     {
-        path: "/products/:categoryId",
+        path: "/products/:categoryName/:categoryId",
         element: <ProductList/>,
         
       },

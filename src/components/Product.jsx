@@ -5,6 +5,7 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 
 const Info = styled.div`
   opacity: 0;
@@ -68,6 +69,11 @@ const Image = styled.img`
 `;
 
 const Product = ({ item }) => {
+  let navigate = useNavigate();
+  function goToProductDetail(id) {
+    navigate(`/product/${id}`);
+  }
+
   return (
     <Container>
       <Circle />
@@ -76,11 +82,9 @@ const Product = ({ item }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-        <a href={`product/${item.id}`}>
-          <Icon>
-            <SearchOutlined />
-          </Icon>
-        </a>
+        <Icon onClick={() => goToProductDetail(`${item.id}`)}>
+          <SearchOutlined />
+        </Icon>
         <Icon>
           <FavoriteBorderOutlined />
         </Icon>

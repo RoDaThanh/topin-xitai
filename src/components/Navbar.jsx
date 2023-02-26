@@ -1,6 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCart } from "@material-ui/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -39,7 +40,9 @@ const Center = styled.div`
   text-align: center;
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.h1`
+  cursor: pointer;
+`;
 
 const Right = styled.div`
   flex: 1;
@@ -56,6 +59,11 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  function goToHomePage() {
+    navigate("/home");
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -63,11 +71,11 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <Search style={{color:"gray", fontSize: 16}}/>
+            <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>TooPin XiTai</Logo>
+          <Logo onClick={goToHomePage}> TooPin XiTai</Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

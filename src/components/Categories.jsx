@@ -3,8 +3,8 @@ import { categories } from './../data';
 import Category from './Category';
 import styled from 'styled-components';
 import { useState } from 'react';
-import axios  from 'axios';
 import { useEffect } from 'react';
+import categoryApi from './../api/categoryApi';
 
 const Container = styled.div`
   display: flex ;
@@ -17,7 +17,7 @@ const Categories = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/product-service/api/categories");
+        const res = await categoryApi.getAllCategories();
         console.log(res);
         setCategoryList(res.data);
       } catch (error) {}

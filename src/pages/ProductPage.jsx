@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import { Add, Remove } from "@material-ui/icons";
 import {useLocation} from  "react-router-dom";
 import { popularProducts } from "../data";
-import  axios  from 'axios';
+import productApi from './../api/productApi';
 
 const Container = styled.div``;
 const Wapper = styled.div`
@@ -77,8 +77,7 @@ const ProductPage = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/product-service/api/products/${id}`);
-        console.log(res);
+        const res = await productApi.getProduct(id);
         setProduct(res.data);
       } catch (error) {}
     };
