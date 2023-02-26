@@ -1,4 +1,4 @@
-import React ,{ useState }from "react";
+import React ,{ useState, useEffect }from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import { Add, Remove } from "@material-ui/icons";
 import {useLocation} from  "react-router-dom";
 import { popularProducts } from "../data";
+import  axios  from 'axios';
 
 const Container = styled.div``;
 const Wapper = styled.div`
@@ -71,8 +72,24 @@ const ProductPage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
-  const product = popularProducts.find(product => product.id == id);
-  console.log(product);
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8080/product-service/api/products/${id}`);
+        console.log(res);
+        setProduct(res.data);
+      } catch (error) {}
+    };
+    getProduct();
+  },[id]);
+
+  //Mock data
+  if(Object.is(product, null)){
+    setProduct(popularProducts.find(product => product.id === id));
+  }
+
 
   return (
     <Container>
@@ -84,9 +101,9 @@ const ProductPage = () => {
           <Image src={product.img}></Image>
         </ImageContainer>
         <InforContainer>
-          <Title>UNISEX STREET STYLE</Title>
-          <Desc>Hip hop never die</Desc>
-          <Price>$ 50</Price>
+          <Title>{product.name}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>$ {product.price}</Price>
           <AddContainer>
             <AmountContainer>
               <Remove />
