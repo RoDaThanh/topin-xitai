@@ -44,10 +44,10 @@ const Button = styled.button`
 const Category = ({ item }) => {
   return (
     <Container>
-      <a href={`/products`}>
+      <a href={`/products/${item.id}`}>
         <Image src={item.img} />
         <InfoContainer>
-          <Title>{item.title}</Title>
+          <Title>{item.name}</Title>
           <Button>SHOP NOW</Button>
         </InfoContainer>
       </a>

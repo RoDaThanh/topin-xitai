@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   padding: 20px;
@@ -13,18 +14,21 @@ const Container = styled.div`
 `;
 
 const Products = () => {
+  const location = useLocation();
+  const cateId = location.pathname.split("/")[2];
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/product");
+        const res = await axios.get(`http://localhost:8080/product-service/api/products?categoryId=${cateId}`);
         console.log(res);
         setProducts(res.data);
       } catch (error) {}
     };
-    getProducts()
-  },[]);
+    getProducts();
+  },[cateId]);
+
   if(products.length === 0){
     setProducts(popularProducts);
   }

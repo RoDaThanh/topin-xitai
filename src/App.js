@@ -6,11 +6,17 @@ import ProductList from './pages/ProductList';
 
   const router = createBrowserRouter([
     {
-      path: "/home",
+      path: "/",
+      
       element: <Home/>,
     },
     {
-        path: "/products",
+      path: "/home",
+      
+      element: <Home/>,
+    },
+    {
+        path: "/products/:categoryId",
         element: <ProductList/>,
         
       },
