@@ -5,7 +5,7 @@ import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { Add, Remove } from "@material-ui/icons";
-import {useLocation} from  "react-router-dom";
+import {useLocation, useNavigate} from  "react-router-dom";
 import { popularProducts } from "../data";
 import productApi from './../api/productApi';
 
@@ -72,8 +72,7 @@ const ProductPage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
-  const [product, setProduct] = useState([]);
-
+  const [product, setProduct] = useState({});
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -84,9 +83,16 @@ const ProductPage = () => {
     getProduct();
   },[id]);
 
-  //Mock data
-  if(Object.is(product, null)){
-    setProduct(popularProducts.find(product => product.id === id));
+  if(JSON.stringify(product) === '{}') {
+    setProduct(popularProducts.find(pro => pro.id === Number(id)));
+  }
+
+  let navigate = useNavigate();
+  function handleBuyProduct(productId) {
+    const isLogin = sessionStorage.getItem("isLogin");
+    if( isLogin === 'false' || isLogin == null){
+      navigate("/login");
+    }
   }
 
 
@@ -110,7 +116,7 @@ const ProductPage = () => {
               <Add />
             </AmountContainer>
             <Button>ADD TO CART</Button>
-            <Button>BUY NOW</Button>
+            <Button onClick={() => handleBuyProduct(product.id)}>BUY NOW</Button>
           </AddContainer>
         </InforContainer>
       </Wapper>

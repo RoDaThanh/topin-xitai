@@ -63,7 +63,12 @@ const Navbar = () => {
   function goToHomePage() {
     navigate("/home");
   }
-
+  function goToLoginPage() {
+    navigate("/login");
+  }
+  function goToRegisterPage() {
+    navigate("/register");
+  }
   return (
     <Container>
       <Wrapper>
@@ -78,8 +83,8 @@ const Navbar = () => {
           <Logo onClick={goToHomePage}> TooPin XiTai</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem onClick={goToRegisterPage}>REGISTER</MenuItem>
+          <MenuItem onClick={goToLoginPage}>SIGN IN</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
               <ShoppingCart color="action" />
