@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCart } from "@material-ui/icons";
+import { AccountCircle, Search, ShoppingCart } from "@material-ui/icons";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -69,6 +69,9 @@ const Navbar = () => {
   function goToRegisterPage() {
     navigate("/register");
   }
+  function goToCustomerPage() {
+    navigate("/customer");
+  }
   return (
     <Container>
       <Wrapper>
@@ -90,6 +93,7 @@ const Navbar = () => {
               <ShoppingCart color="action" />
             </Badge>
           </MenuItem>
+          <MenuItem onClick={goToCustomerPage}><AccountCircle/></MenuItem>
         </Right>
       </Wrapper>
     </Container>

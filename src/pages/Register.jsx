@@ -21,18 +21,26 @@ const Wrapper = styled.div`
   width: 40%;
 `;
 const Title = styled.h1`
-    font-size: 24px;
-    font-weight: 400;
+  font-size: 24px;
+  font-weight: 400;
 `;
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
 `;
-const Input = styled.input`
+const InputContainer = styled.div`
   flex: 1;
-  min-width: 40%;
-  margin: 20px 10px 0px 0px;
+  min-width: 50%;
+  margin-bottom: 20px;
 `;
+const Input = styled.input`
+ display: flex;
+ min-width: 50%;
+ height: 20px;
+`;
+
+const Label = styled.span``;
+
 const Button = styled.button`
   margin-top: 20px;
   padding: 10px;
@@ -40,20 +48,37 @@ const Button = styled.button`
   color: white;
   border: none;
 `;
-
 const Register = () => {
   return (
     <Container img={image}>
       <Wrapper>
         <Title>Create an account</Title>
-
         <Form>
-          <Input placeholder="First Name" />
-          <Input placeholder="Last Name" />
-          <Input placeholder="Email address" />
-          <Input placeholder="userName" />
-          <Input placeholder="password" />
-          <Input placeholder="Confirm password" />
+          <InputContainer>
+            <Label>First name</Label>
+            <Input placeholder="First Name" />
+          </InputContainer>
+          <InputContainer>
+            <Label>Last name</Label>
+            <Input placeholder="Last Name" />
+          </InputContainer>
+          <InputContainer>
+            <Label>Email addres</Label>
+            <Input placeholder="Email address" />
+          </InputContainer>
+          <InputContainer>
+            <Label>User name</Label>
+            <Input placeholder="userName" />
+          </InputContainer>
+          <InputContainer>
+            <Label>Password</Label>
+            <Input placeholder="password" />
+          </InputContainer>
+          <InputContainer>
+            <Label>Confirm password</Label>
+            <Input placeholder="Confirm password" />
+          </InputContainer>
+
           <Button> Create account</Button>
         </Form>
       </Wrapper>
